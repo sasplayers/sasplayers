@@ -1,4 +1,6 @@
 ![screenshot_tx16s_21-08-28_08-12-45](https://user-images.githubusercontent.com/22359070/131209987-b9249a8b-e16c-4fe5-99f5-5277adf8b778.png)
+![screenshot_tx16s_21-08-25_20-01-47](https://user-images.githubusercontent.com/22359070/131210008-063afbd7-a556-4d36-bfec-804292a1d7b6.png)
+
 - 👋 Hi, I’m @sasplayers, I needed a way to remember what each switch did on my RadioMaster TX16s "Open TX" did, so I create a widget lua script with a picture of the radio on the lcd display and the name of each button next to each switch. The names are edited via the Mixes menu when adding switches to be used.
 
 - 🌱 I’m currently learning this as I go so its a work in progress.
