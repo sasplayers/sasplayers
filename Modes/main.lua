@@ -73,11 +73,13 @@ local options = {
 -- called to mode.mix item to getfieldinfo.
 --------------------------------
 local function matchIdtomodesource(findit)
-  local i = 0
+  local i = 4
     while model.getMix (i,0) do
 
           if model.getMix(i,0).source == findit then
           findit = model.getMix(i,0).name
+          else
+            --break
           end
     i = i + 1
     end
@@ -110,18 +112,17 @@ local function create(zone, options)
   local wgt = { zone=zone, options=options}
   backgroundBitmap = Bitmap.open("/WIDGETS/Modes/img/background.png")
   lcd.setColor( CUSTOM_COLOR, options.HColor )
-  options = options,
   --start debugging
-  print("\n")
-  print("creating zone and options")
-  print("\n")
-  print("\n")
-  print("\n")
-
-
-
+  --print("\n")
+  --print("creating zone and options")
+  --print("\n")
+  --print("\n")
+  --print("\n")
+  wgt.options.HColor = RED
+  wgt.options.IBColor = BLUE
   offsetX = (wgt.zone.w - 178) / 2
   offsetY = (wgt.zone.h - 148) / 2
+
   return wgt
 end
 
@@ -131,7 +132,6 @@ end
 ---------------------------------------------
 local function update(wgt, options)
   wgt.options = options
-
 end
 
 --------------------------------
@@ -139,7 +139,7 @@ end
 -- PERIODICALLY CALLED FUNCTION
 --------------------------------
 local function background(wgt)
-  wgt.options = options
+
 end
 
 ------------------------------------
@@ -155,9 +155,8 @@ function refresh(wgt)
   if backgroundBitmap ~= nil then
     lcd.drawBitmap(backgroundBitmap, wgt.zone.x , wgt.zone.y)
   end
-  
-  
-  getValues(wgt)
+
+  --getValues(wgt)
 
   -------------------------------
 	-- Model And switch names
@@ -193,13 +192,7 @@ local bl = blocks['modelname']
     --id6P = getFieldInfo('6p').id
     --print(getValue("157"))
 lcd.drawText (wgt.zone.x, wgt.zone.y, model.getInfo().name, MIDSIZE + SHADOWED)
---print("\n")
---print("\n")
---print("\n")
---print(wgt.options.HColor)
---print("\n")
---print("\n")
---print("\n")
+
 lcd.setColor (TEXT_COLOR, wgt.options.HColor)
 
 lcd.drawText (wgt.zone.x + 60, wgt.zone.y + 215 ,nameSA ,SMLSIZE + INVERS)
